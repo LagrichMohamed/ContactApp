@@ -1,3 +1,27 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #121212;
+  --button-bg: white;
+  --button-color: #3992ff;
+  --button-hover-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.6), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  --button-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  --sidebar-bg: #f7f7f7;
+  --border-color: #e3e3e3;
+  --zero-state-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --button-bg: #2a2a2a;
+  --button-color: #5ba4ff;
+  --button-hover-shadow: 0 0px 1px hsla(0, 0%, 100%, 0.6), 0 1px 2px hsla(0, 0%, 100%, 0.2);
+  --button-shadow: 0 0px 1px hsla(0, 0%, 100%, 0.2), 0 1px 2px hsla(0, 0%, 100%, 0.2);
+  --sidebar-bg: #2a2a2a;
+  --border-color: #404040;
+  --zero-state-bg: #2a2a2a;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -13,6 +37,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 code {
@@ -25,8 +52,8 @@ body {
   height: 100%;
   margin: 0;
   line-height: 1.5;
-  color: #121212;
 }
+
 textarea,
 input,
 button {
@@ -35,20 +62,22 @@ button {
   border: none;
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
-  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
-  background-color: white;
+  box-shadow: var(--button-shadow);
+  background-color: var(--button-bg);
+  color: var(--button-color);
   line-height: 1.5;
   margin: 0;
 }
+
 button {
-  color: #3992ff;
+  color: var(--button-color);
   font-weight: 500;
 }
 
 textarea:hover,
 input:hover,
 button:hover {
-  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.6), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  box-shadow: var(--button-hover-shadow);
 }
 
 button:active {
@@ -100,12 +129,14 @@ form[action$="destroy"] button {
   display: flex;
   height: 100%;
   width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 #sidebar {
   width: 22rem;
-  background-color: #f7f7f7;
-  border-right: solid 1px #e3e3e3;
+  background-color: var(--sidebar-bg);
+  border-right: solid 1px var(--border-color);
   display: flex;
   flex-direction: column;
 }
@@ -122,7 +153,7 @@ form[action$="destroy"] button {
   align-items: center;
   margin: 0;
   padding: 1rem 2rem;
-  border-top: 1px solid #e3e3e3;
+  border-top: 1px solid var(--border-color);
   order: 1;
   line-height: 1;
 }
@@ -142,7 +173,7 @@ form[action$="destroy"] button {
   gap: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid var(--border-color);
 }
 
 #sidebar > div form {
@@ -355,27 +386,22 @@ i {
   color: inherit;
 }
 
-/* #zero-state {
-  margin: 2rem auto;
-  text-align: center;
-  color: #818181;
-} */
 #zero-state {
   margin: 2rem auto;
   text-align: center;
-  color: #313638;
+  color: var(--text-color);
+  background-color: var(--zero-state-bg);
   font-family: "Arial", sans-serif;
   padding: 2rem;
   max-width: 600px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  background-color: #f9f9f9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #zero-state h1 {
   font-size: 1.8rem;
-  color: #313638;
+  color: var(--text-color);
   margin-bottom: 1rem;
 }
 

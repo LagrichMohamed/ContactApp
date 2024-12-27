@@ -11,6 +11,7 @@ import {
 import { getContacts, createContact } from "../contacts";
 import { useEffect } from "react";
 import { RiContactsBook3Line } from "react-icons/ri";
+import ThemeToggle from "../components/ThemeToggle";
 
 export async function action() {
   const contact = await createContact();
@@ -36,9 +37,10 @@ export default function Root() {
   }, [q]);
   return (
     <>
+      <ThemeToggle />
       <div id="sidebar">
         <h1>
-          <RiContactsBook3Line size={25} color="#313638" />
+          <RiContactsBook3Line size={25} color="var(--text-color)" />
           <span>Contacts</span>
         </h1>
         <div>
